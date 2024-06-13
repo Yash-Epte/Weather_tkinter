@@ -1,14 +1,15 @@
-# Weather_tkinter
+# 🌦️ Weather_tkinter
 
 Weather_tkinter is a simple and user-friendly weather application built using Python, Tkinter, and the OpenWeatherMap API. The application allows users to enter a city name and retrieve the current weather conditions for that city, displaying the temperature, weather description, and an icon representing the weather.
 
-## Features
+## 🌠Features
+<img width="501" alt="image" src="https://github.com/Yash-Epte/Weather_tkinter/assets/121223452/d6224f88-8e92-4cc2-ade8-a8782a962ea2">
 
 - Fetches and displays real-time weather data for any city.
 - Shows temperature, weather description, and a weather icon.
 - Modern and user-friendly interface using ttkbootstrap.
 
-## Requirements
+## 🧰Requirements
 
 - Python 3.x
 - Tkinter (usually comes pre-installed with Python)
@@ -16,7 +17,7 @@ Weather_tkinter is a simple and user-friendly weather application built using Py
 - Pillow library
 - ttkbootstrap library
 
-## Installation
+## 👨‍💼 Installation
 
 1. Clone the repository:
    ```bash
@@ -41,7 +42,7 @@ python main.py
 
 
 
-## Acknowledgements
+## 🤝 Acknowledgements
 
 - [OpenWeatherMap API](https://openweathermap.org/api) for providing weather data.
 - [Tkinter](https://docs.python.org/3/library/tkinter.html) for the GUI framework.
