@@ -1,10 +1,12 @@
-import tkinter as tk
+import tkinter as tk 
 import requests
 from tkinter import messagebox
 from PIL import Image, ImageTk
+import ttkbootstrap
+
 
 def get_weather(city):
-    API_KEY = open("/Users/yashepte/Desktop/Weather/API_KEY","r").read()
+    API_KEY = open("API_KEY","r").read()
     url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}"
     res = requests.get(url)
 
@@ -20,18 +22,21 @@ def get_weather(city):
     country = weather['sys']['country']
 
     icon_url = f"https://openweathermap.org/img/wn/{icon_id}@2x.png"
-    return(icon_url, temprature, description, city, country)
+    return(icon_url,temprature,description,city,country)
+
+
+
 
 def search():
     city = city_name.get()
     result = get_weather(city)
-    if result is None:
-        return
+    if result is None :
+        return 
 
-    icon_url, temprature, description, city, country = result
+    icon_url,temprature,description,city,country = result
     location_lable.configure(text=f"{city}, {country}")
 
-    image = Image.open(requests.get(icon_url, stream=True).raw)
+    image = Image.open(requests.get(icon_url,stream=True).raw)
     icon = ImageTk.PhotoImage(image)
     icon_lable.configure(image=icon)
     icon_lable.image = icon
@@ -39,15 +44,20 @@ def search():
     temperature_lable.configure(text=f"Temperature :{temprature:.2f}°C")
     description_lable.configure(text=f"Description: {description}")
 
-root = tk.Tk()
-root.title("Weather Application")
+
+
+
+root = ttkbootstrap.Window(themename="morph")
+#root = tk.Tk()
+root.title("My Weather")
 root.geometry("500x500")
 
-# creating input for the user
-city_name = tk.Entry(root, font=("arial", 12))
+#creating input for the user 
+city_name = ttkbootstrap.Entry(root, font="arial")
 city_name.pack(pady=10)
 
-search_button = tk.Button(root, text="Search", command=search)
+
+search_button = ttkbootstrap.Button(root,text="Search",command =search ,bootstyle="Warning")
 search_button.pack(pady=10)
 
 location_lable = tk.Label(root, font=("arial", 25))
@@ -61,5 +71,9 @@ temperature_lable.pack()
 
 description_lable = tk.Label(root, font=("arial", 20))
 description_lable.pack()
+
+
+
+
 
 root.mainloop()
